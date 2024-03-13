@@ -1,0 +1,37 @@
+## app.js
+
+- **Define Constants**
+
+  - Sets paths to input directories and output files.
+  - Declares header arrays for `capacity` and `dwelling` data types.
+
+- **Generate JSON File Function (`generateJsonFile`)**
+
+  - **Input**: Receives an array of objects (file contents and names) and a path for the output JSON file.
+  - **Processing**:
+    - Determines the event type for each file's content.
+    - Parses CSV content into JSON objects using the correct header array.
+    - Adds the file name to each object and removes the `brand` field.
+    - Sorts objects by `dateTime` to ensure chronological order.
+  - **Output**: Concatenates JSON strings and writes them to the specified output file path.
+
+- **Main Function (`main`)**
+
+  - Reads file contents from both input directories.
+  - Invokes `generateJsonFile` for content from each directory, specifying the corresponding output file path.
+
+- **Execution**
+  - Initiates the process by calling the `main` function.
+
+## json-file-generate.js
+
+This code automates the process of aggregating and transforming event data related to people's movements or interactions captured by monitoring systems.
+
+This code processes event data from two separate directories (`munro-people-event` and `vca-people-event`).
+
+For each directory, it:
+
+- Reads all files and categorizes their content based on event types (`dwell`, `visit`, `capacity`).
+- Converts the CSV formatted data into JSON objects, adhering to predefined header structures and removing any `brand` field.
+- Sorts these objects by their `dateTime` to ensure they are in chronological order.
+- Writes the sorted data into separate JSON files (`munro-generated_v1.json` and `vca-generated_v1.json`), with each line in these files representing a JSON string of the event data.
