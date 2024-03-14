@@ -1,9 +1,8 @@
 // dbConnection.js
 import knex from 'knex'
 import { dbConfig } from '../../config.js'
-import logger from './logger.js' // Adjust this path to where your config.js is located
+import logger from './logger.js'
 
-// Knex configuration
 const dbKnex = knex(dbConfig)
 
 async function checkKnexConnection(attempt = 1) {

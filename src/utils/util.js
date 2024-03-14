@@ -3,8 +3,7 @@
  * @param {number} milliseconds - The number of milliseconds to sleep.
  * @returns {Promise<void>} - A promise that resolves after the specified time.
  */
-const sleep = (milliseconds) => {
+// Exporting the function declaration
+export function sleep(milliseconds) {
   return new Promise((resolve) => setTimeout(resolve, milliseconds))
 }
-
-module.exports = { sleep }

@@ -3,7 +3,7 @@
  * @param {string} content - The content to check for event type.
  * @returns {string} - The event type ('dwell', 'capacity', 'visit', or 'unknown').
  */
-const getEventType = (content) => {
+function getEventType(content) {
   if (content.includes('dwell')) {
     return 'dwell'
   } else if (content.includes('capacity')) {
@@ -15,4 +15,4 @@ const getEventType = (content) => {
   }
 }
 
-module.exports = { getEventType }
+export { getEventType }

@@ -1,5 +1,5 @@
-const { readDir, csvToObject, writeToFile } = require('./utils/fileUtil')
-const { getEventType } = require('./utils/peopleEventUtil')
+import { readDir, csvToObject, writeToFile } from './utils/fileUtil'
+import { getEventType } from './utils/peopleEventUtil'
 
 const folderPathMunro = '../data/munro-people-event'
 const folderPathVca = '../data/vca-people-event'
@@ -56,7 +56,7 @@ const dwellingHeaderArray = [
  * @param {string} generatedFilePath - The path where the generated JSON file will be saved.
  * @returns {Promise<void>} - A promise that resolves when the JSON file is successfully generated and saved.
  */
-const generateJsonFile = async (fileContents, generatedFilePath) => {
+async function generateJsonFile(fileContents, generatedFilePath) {
   let results = []
   for (let fileInfo of fileContents) {
     const content = fileInfo.fileContent
@@ -90,7 +90,7 @@ const generateJsonFile = async (fileContents, generatedFilePath) => {
 }
 
 // Execute the main function
-const main = async () => {
+async function main() {
   const vcaFileContent = await readDir(folderPathVca)
   const munroFileContent = await readDir(folderPathMunro)
 
