@@ -13,14 +13,13 @@ const randomString = () => {
   )
 }
 
-
-
 // Determine the directory of the current module file
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const logPath = path.join(
   __dirname,
+  '..',
   '..',
   '..',
   '..',

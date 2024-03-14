@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "yarn && cross-env NODE_ENV=development nodemon src/index.js",
-    "compose-file": "node json-file-generator.js"
+    "compose-file": "node json-file-generator.js",
+    "start:qat": "yarn && cross-env NODE_ENV=qat pm2 start src/index.js --name HK001-DEMO"
   },
   "keywords": [],
   "author": "",
