@@ -5,12 +5,15 @@ import { format } from 'date-fns'
 import { fileURLToPath } from 'url'
 import util from 'util'
 import ecsFormat from '@elastic/ecs-winston-format'
+import { STORE_CODE } from '../../config.js'
 const randomString = () => {
   return (
     Math.random().toString(36).substring(2, 15) +
     Math.random().toString(36).substring(2, 15)
   )
 }
+
+
 
 // Determine the directory of the current module file
 const __filename = fileURLToPath(import.meta.url)
@@ -22,7 +25,7 @@ const logPath = path.join(
   '..',
   '..',
   'logs',
-  'hardware-generator-logs'
+  `${STORE_CODE}.logs`
 )
 
 const transformForFile = () => {

@@ -4,7 +4,7 @@ import app from './server.js'
 import * as Service from './services/generateFile.js'
 import { checkKnexConnection } from './lib/dbConnection.js'
 import logger from './lib/logger.js'
-import { config, envConfig } from '../config.js'
+import { config, envConfig, STORE_CODE } from '../config.js'
 import { handleError } from './utils/errorHandler.js'
 
 dotenv.config()
@@ -26,8 +26,8 @@ async function onDatabaseConnected() {
   })
 }
 
-app.listen(8111, () => {
-  console.log('Server is running on port 8111')
+app.listen(port, () => {
+  console.log(`Server is running on port ${port} for STORE_CODE: ${STORE_CODE}`)
   logger.info(`Server is running in ${environment} mode`)
   logger.info(`http://localhost:${port}`)
 })
