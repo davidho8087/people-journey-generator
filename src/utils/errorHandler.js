@@ -1,7 +1,12 @@
-import logger from '../lib/logger.js'
+import logger from '../lib/logger.js';
 
-export const handleError = (props) => {
-  const { error, source } = props
-  logger.error(`Error in ${source}:`, error.message)
-  logger.error('Full-Error:', error)
+// Define handleError to accept individual parameters
+export const handleError = (error, source) => {
+  const message = error && error.message ? error.message : 'No error message available';
+  logger.error(`Error in ${source}:`, message);
+  if (error) {
+    logger.error('Full-Error:', error);
+  } else {
+    logger.error('Full-Error: Error object is undefined');
+  }
 }

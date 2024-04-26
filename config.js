@@ -58,44 +58,14 @@ const config = {
   generatedFileLocation: process.env.GENERATED_FILE_LOCATION,
 }
 
-const timeZone = "Asia/Hong_Kong"
-const operatingHourMock = [
-  {
-    day: 0,
-    start: '09:00',
-    end: '22:00',
-  },
-  {
-    day: 1,
-    start: '09:00',
-    end: '22:00',
-  },
-  {
-    day: 2,
-    start: '09:00',
-    end: '22:00',
-  },
-  {
-    day: 3,
-    start: '09:00',
-    end: '22:00',
-  },
-  {
-    day: 4,
-    start: '09:00',
-    end: '22:00',
-  },
-  {
-    day: 5,
-    start: '09:00',
-    end: '22:00',
-  },
-  {
-    day: 6,
-    start: '09:00',
-    end: '22:00',
-  },
+const TIME_ZONE = 'Asia/Hong_Kong'
+const OPERATING_HOURS = [
+  { day: 1, start: '09:00', end: '22:00' }, // Monday
+  { day: 2, start: '00:00', end: '22:00' }, // Tuesday
+  { day: 3, start: '09:00', end: '22:00' }, // Wednesday
+  { day: 4, start: '09:00', end: '22:00' }, // Thursday
+  { day: 5, start: '09:00', end: '22:00' }, // Friday
+  { day: 6, start: '00:10', end: '22:00' }, // Saturday
+  { day: 0, start: '00:10', end: '22:00' }, // Sunday
 ]
-
-
-export { config, dbConfig, envConfig, STORE_CODE, timeZone, operatingHourMock }
+export { config, dbConfig, envConfig, STORE_CODE, TIME_ZONE, OPERATING_HOURS }

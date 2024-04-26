@@ -1,3 +1,5 @@
+import { dbKnex } from '../lib/dbConnection.js'
+
 /**
  * Sleeps for a specified number of milliseconds.
  * @param {number} milliseconds - The number of milliseconds to sleep.
