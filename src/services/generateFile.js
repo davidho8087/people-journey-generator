@@ -1,5 +1,5 @@
 import { randomUUID } from 'crypto'
-import { STORE_CODE, config } from '../../config.js'
+import {STORE_CODE, config, operatingHourMock} from '../../config.js'
 import dayjs from 'dayjs'
 import logger from '../lib/logger.js'
 import { promises as fsPromises } from 'fs'
@@ -7,13 +7,20 @@ import { handleError } from '../utils/errorHandler.js'
 import { sleep } from '../utils/util.js'
 import { dbKnex } from '../lib/dbConnection.js'
 
+
 const loopRepeater = config.loopRepeater
 const repeaterFileLocation = config.repeaterFileLocation
 const generatedFileLocation = config.generatedFileLocation
 const trackerIdPrefix = dayjs().format('YYYYMMDDHHmmss')
 
+
 async function saveRecord(originalRecord, loopCount) {
   // Create a new record object with updated properties, keeping originalRecord immutable
+  logger.info('originalRecord', originalRecord)
+
+  const operatingHourMock1 = operatingHourMock
+console.log('operatingHourMock1', operatingHourMock1)
+
   const newRecord = {
     ...originalRecord,
     uuid: randomUUID(),
@@ -25,21 +32,21 @@ async function saveRecord(originalRecord, loopCount) {
   // Save record using dbKnex
   try {
     // Assuming your table is named 'detection'
-    await dbKnex('detection').insert({
-      tracker_id: newRecord.trackerId,
-      store_code: newRecord.storeCode,
-      event_type: newRecord.eventType,
-      event_name: newRecord.eventName,
-      duration: newRecord.duration,
-      class_type: newRecord.classType,
-      region: newRecord.region,
-      message: newRecord.message,
-      date_time: newRecord.dateTime,
-      camera_name: newRecord.cameraName,
-      region_id: newRecord.regionId,
-      zone_name: newRecord.zoneName,
-    })
-    logger.info('Record successfully saved', newRecord)
+    // await dbKnex('detection').insert({
+    //   tracker_id: newRecord.trackerId,
+    //   store_code: newRecord.storeCode,
+    //   event_type: newRecord.eventType,
+    //   event_name: newRecord.eventName,
+    //   duration: newRecord.duration,
+    //   class_type: newRecord.classType,
+    //   region: newRecord.region,
+    //   message: newRecord.message,
+    //   date_time: newRecord.dateTime,
+    //   camera_name: newRecord.cameraName,
+    //   region_id: newRecord.regionId,
+    //   zone_name: newRecord.zoneName,
+    // })
+   // logger.info('Record successfully saved', newRecord)
   } catch (error) {
     logger.error('Error saving record to database:', error)
     throw error
