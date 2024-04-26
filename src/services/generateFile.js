@@ -5,7 +5,7 @@ import { promises as fsPromises } from 'fs'
 import { handleError } from '../utils/errorHandler.js'
 import { sleep } from '../utils/util.js'
 import { dbKnex } from '../lib/dbConnection.js'
-import { toZonedTime, formatInTimeZone } from 'date-fns-tz'
+import { toZonedTime } from 'date-fns-tz'
 import {
   getDay,
   setHours,
