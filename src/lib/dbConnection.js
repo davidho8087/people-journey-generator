@@ -43,7 +43,7 @@ async function checkKnexConnection(attempt = 1) {
 export async function verifyDatabaseSchema() {
   try {
     // Execute a raw SQL query to select the first record from the 'detection' table
-    const result = await dbKnex.raw('SELECT * FROM detection LIMIT 1')
+    await dbKnex.raw('SELECT * FROM detection LIMIT 1')
 
     // If the query is successful, log a success message
     console.log('Database is correctly configured.')
