@@ -140,7 +140,20 @@ async function saveRecord(originalRecord, loopCount) {
   }
 
   try {
-    await dbKnex('detection').insert(newRecord)
+    await dbKnex('detection').insert({
+      tracker_id: newRecord.trackerId,
+      store_code: newRecord.storeCode,
+      event_type: newRecord.eventType,
+      event_name: newRecord.eventName,
+      duration: newRecord.duration,
+      class_type: newRecord.classType,
+      region: newRecord.region,
+      message: newRecord.message,
+      date_time: newRecord.dateTime,
+      camera_name: newRecord.cameraName,
+      region_id: newRecord.regionId,
+      zone_name: newRecord.zoneName,
+    })
     logger.info('Record successfully saved', newRecord)
   } catch (error) {
     logger.error('Error saving record to database:', error)
