@@ -129,6 +129,8 @@ async function saveRecord(originalRecord, loopCount) {
     return // Exit if not within operating hours
   }
 
+  console.log('originalRecord', originalRecord)
+
   const newRecord = {
     ...originalRecord,
     uuid: randomUUID(),
