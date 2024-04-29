@@ -19,10 +19,10 @@ import {
 
 const loopRepeater = config.loopRepeater
 const repeaterFileLocation = config.repeaterFileLocation
-const generatedFileLocation = config.generatedFileLocation
+// const generatedFileLocation = config.generatedFileLocation
 const trackerIdPrefix = formatDate(new Date(), 'yyyyMMddHHmmss')
 
-if (!repeaterFileLocation || !generatedFileLocation) {
+if (!repeaterFileLocation) {
   logger.error(
     'Please provide repeaterFileLocation and generatedFileLocation in the config file.'
   )
@@ -147,11 +147,11 @@ async function saveRecord(originalRecord, loopCount) {
       event_name: newRecord.eventName,
       duration: newRecord.duration,
       class_type: newRecord.classType,
-      region: newRecord.region,
+      region: newRecord.region.toLocaleLowerCase(),
       message: newRecord.message,
       date_time: newRecord.dateTime,
       camera_name: newRecord.cameraName,
-      region_id: newRecord.regionId,
+      region_id: newRecord.regionId.toLowerCase(),
       zone_name: newRecord.zoneName,
     })
     logger.info('Record successfully saved', newRecord)
