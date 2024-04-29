@@ -65,7 +65,7 @@ const OPERATING_HOURS = [
   { day: 3, start: '09:00', end: '22:00' }, // Wednesday
   { day: 4, start: '09:00', end: '22:00' }, // Thursday
   { day: 5, start: '09:00', end: '22:00' }, // Friday
-  { day: 6, start: '00:10', end: '22:00' }, // Saturday
-  { day: 0, start: '00:10', end: '22:00' }, // Sunday
+  { day: 6, start: '09:10', end: '22:00' }, // Saturday
+  { day: 0, start: '09:10', end: '22:00' }, // Sunday
 ]
 export { config, dbConfig, envConfig, STORE_CODE, TIME_ZONE, OPERATING_HOURS }
